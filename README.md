@@ -1,93 +1,77 @@
-# RAG Assignment – Agentic AI
+# Autonomous Research Agent using LangChain
 
-## Objective
-
-Build a Retrieval-Augmented Generation (RAG) system that answers user queries based on custom documents.
-
----
+This project is a powerful AI research agent built using Python and LangChain. It can autonomously search the web, analyze information, and generate a structured research report on any given topic.
 
 ## Features
+- **Web Search Tool**: Uses DuckDuckGo to search for real-time information.
+- **Knowledge Tool**: Uses Wikipedia for background information and factual data.
+- **ReAct Agent**: Utilizes LangChain's Zero-Shot ReAct Agent for decision making.
+- **Structured Reports**: Generates professional research reports with clear sections.
+- **Automated Saving**: Automatically saves the research report as a text file in the `sample_outputs/` directory.
 
-* Document loading and preprocessing
-* Text chunking
-* Embedding generation
-* Vector database storage
-* Semantic search
-* Context-aware answer generation
-
----
-
-## Project Workflow
-
-1. Load document (`sample.txt`)
-2. Split text into chunks
-3. Generate embeddings
-4. Store in vector database
-5. Retrieve relevant chunks
-6. Send context + query to LLM
-7. Generate final answer
-
----
-
-## Tech Stack
-
-* Python
-* LangChain
-* OpenAI API
-* FAISS
-* Jupyter Notebook
-
----
+## Prerequisites
+- Python 3.8+
+- Groq API Key (Free tier available)
 
 ## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/Autonomous-Research-Agent.git
+   cd Autonomous-Research-Agent
+   ```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   # Windows:
+   .\.venv\Scripts\activate
+   # macOS/Linux:
+   source .venv/bin/activate
+   ```
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Configure your API key:
+   - Create a `.env` file in the project root.
+   - Obtain a free API key from [Groq Console](https://console.groq.com/keys).
+   - Add the following to your `.env`:
+     ```env
+     GROQ_API_KEY=your_groq_api_key_here
+     ```
 
-Clone the repository:
-
-```
-git clone https://github.com/Paul-NIROB/agentic-ai.git
-cd agentic-ai/Assignment1
-```
-
-Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-Create a `.env` file:
-
-```
-OPENAI_API_KEY=your_api_key_here
-```
-
-Run the application:
-
-```
+## Usage
+### CLI Interface
+Run the agent from the command line:
+```bash
 python app.py
 ```
+Then, enter your desired research topic when prompted.
 
----
+### Command Line Arguments
+Alternatively, you can provide the topic directly as a command-line argument:
+```bash
+python app.py "Impact of AI in Healthcare"
+```
 
-## Files Description
+## Project Structure
+- `app.py`: Main entry point for the agent.
+- `requirements.txt`: List of dependencies.
+- `README.md`: Project documentation.
+- `sample_outputs/`: Directory where generated reports are saved.
 
-| File              | Description               |
-| ----------------- | ------------------------- |
-| app.py            | Main RAG application      |
-| RAG_Project.ipynb | Development notebook      |
-| sample.txt        | Sample knowledge document |
-| requirements.txt  | Dependencies              |
+## Output Format
+Each generated report follows a strict structure:
+1. Cover Page
+2. Title
+3. Introduction
+4. Key Findings (bullet points)
+5. Challenges
+6. Future Scope
+7. Conclusion
 
----
+## Example Usage
+- **Topic**: "Impact of AI in Healthcare"
+- **Topic**: "Blockchain in Supply Chain"
 
-## Future Improvements
-
-* Add multi-document support
-* Add web interface (Streamlit)
-* Add memory (Agentic behavior)
-* Add multi-modal RAG
-
----
-
-## Author
-
-**Vishal Yadav**
+## License
+This project is open-source and available under the MIT License.
